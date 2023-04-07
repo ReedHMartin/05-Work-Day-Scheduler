@@ -1,21 +1,7 @@
-$(function () {
+$(function() {
+    const hours = ['8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM'];
+    const currentHour = dayjs().hour();
   
-
-  const hours = ['8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM'];
-  const currentHour = dayjs().hour();
-
-
-
-  // Add a click event listener to all the save buttons in the time blocks
-  $('.saveBtn').on('click', function () {
-    // Get the ID of the parent time block and the value of the description textarea element
-    const key = $(this).parent().attr('id');
-    const value = $(this).siblings('.description').val();
-    // Save the key-value pair in local storage
-    localStorage.setItem(key, value);
-  });
-
-
     // Loop over each hour and create a new time block
     for (let i = 0; i < hours.length; i++) {
       const hour = hours[i];
@@ -47,10 +33,7 @@ $(function () {
       } else {
         timeBlock.addClass('future');
       }
-    
-
- 
-
+  
       // Append the new time block to the container element
       $('.container-lg').append(timeBlock);
     }
